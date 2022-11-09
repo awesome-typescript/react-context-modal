@@ -1,20 +1,30 @@
 import { Component, ReactPortal } from 'react'
 import { createPortal } from 'react-dom'
 
-export const modalRoot = document.querySelector('#modal-root')
+// Use a ternary operator to make sure that the document object is defined
+const modalRoot =
+  typeof document !== `undefined` ? document.querySelector('#modal-root') : null
 
 export class ModalPortal extends Component {
-  private element = document.createElement('div')
+  private element =
+    typeof document !== `undefined` ? document.createElement('div') : null
 
   componentDidMount(): void {
-    modalRoot?.append(this.element)
+    if (this.element) {
+      modalRoot?.append(this.element)
+    }
   }
 
   componentWillUnmount(): void {
-    this.element.remove()
+    if (this.element) {
+      this.element.remove()
+    }
   }
 
-  render(): ReactPortal {
-    return createPortal(this.props.children, this.element)
+  render(): ReactPortal | null {
+    if (this.element) {
+      return createPortal(this.props.children, this.element)
+    }
+    return null
   }
 }
