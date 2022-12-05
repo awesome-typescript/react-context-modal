@@ -1,7 +1,7 @@
 {
-	"name": "@awesome-typescript/react-context-modal",
+	"name": "@awesometypescript/react-context-modal",
 	"version": "1.0.1",
-	"description": "@awesome-typescript/react-context-modal",
+	"description": "@awesometypescript/react-context-modal",
 	"author": "sander.vergeles",
 	"license": "ISC",
 	"repository": {
@@ -22,9 +22,9 @@
 		"commit": "npx git-cz",
 		"precommit": "lint-staged"
 	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/"
-	},
+  "publishConfig": {
+    "access": "public"
+  },
 	"devDependencies": {
 		"@commitlint/cli": "8.3.5",
 		"@commitlint/config-conventional": "8.3.4",
